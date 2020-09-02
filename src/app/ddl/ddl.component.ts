@@ -5,7 +5,6 @@ import { AmortizationYears } from './../amortization-years';
   selector: 'app-ddl',
   templateUrl: './ddl.component.html',
   styleUrls: ['./ddl.component.scss'],
-  template: 'name: {{ name }}'
 })
 export class DdlComponent implements OnInit {
 
@@ -13,8 +12,6 @@ export class DdlComponent implements OnInit {
   @Input() name: string;
 
   constructor() { 
-    console.log(this.items)
-    console.log(this.name);
   }
 
   public expanded = false;
