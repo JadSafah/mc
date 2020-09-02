@@ -1,4 +1,8 @@
 <div class="form-wrapper">
     <div class="input-title">Title</div>
-    <input class="input-header"/>
+    <input
+      class="input-header" 
+      (keyup)="onKey()"
+      [(ngModel)]="inputValue"
+      />
 </div>

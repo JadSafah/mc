@@ -9,6 +9,12 @@ export class InputFormComponent implements OnInit {
 
   constructor() { }
 
+  inputValue = 0;
+
+  onKey() {
+    console.log(this.inputValue)
+  }
+
   ngOnInit(): void {
   }
 
