@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input-form',
@@ -7,15 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputFormComponent implements OnInit {
 
-  constructor() { }
+  myForm: FormGroup;
 
-  inputValue = 0;
+  constructor(private formBuilder: FormBuilder) { }
+
+  inputValue: number;
 
   onKey() {
     console.log(this.inputValue)
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.myForm = this.formBuilder.group({
+      inputField:[Validators.max(1000000), Validators.min(0)]
+    })
   }
 
 }
