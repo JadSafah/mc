@@ -1,0 +1,17 @@
+<div class="dd-wrapper">
+    <div class="dd-title">Title</div>
+    <div class="dd-header" (click)="toggle()">
+        <div class="dd-header-title">
+            <p>{{ selectedItem }}</p>
+        </div>
+        <div class="dd-header-arrow">
+        </div>
+    </div>
+    <div class="dd-list-wrapper">
+        <ul class="dd-list shadow" *ngIf="expanded">
+                <li class="dd-list-items" *ngFor="let item of items" (click)="selectItem(item); toggle();">
+                    {{ item.text }}
+                </li>
+        </ul>
+    </div>
+</div>
