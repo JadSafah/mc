@@ -1,0 +1,6 @@
+<app-input-form></app-input-form>
+<app-ddl itemType="AmortizationYears" (selected)="onSelected($event)"></app-ddl>
+<app-ddl itemType="AmortizationMonths" (selected)="onSelected($event)"></app-ddl>
+<app-ddl itemType="PaymentFrequency" (selected)="onSelected($event)"></app-ddl>
+<app-ddl itemType="Term" (selected)="onSelected($event)"></app-ddl>
+<button (click)="calculate()">Calculate</button>

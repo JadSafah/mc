@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { AmortizationYears } from './../amortization-years';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ITEM } from '../item';
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-ddl',
@@ -8,12 +9,15 @@ import { AmortizationYears } from './../amortization-years';
 })
 export class DdlComponent implements OnInit {
 
-  items = AmortizationYears;
-  @Input() name: string;
+  @Input() itemType: string;
+  @Output() selected = new EventEmitter<number>();
 
-  constructor() { 
+  items: ITEM[];
+
+  constructor(private itemsService: ItemsService) { 
+
   }
-
+  
   public expanded = false;
   public selectedItem = "Select";
 
@@ -23,11 +27,17 @@ export class DdlComponent implements OnInit {
 
   public selectItem(item) {
     this.selectedItem = item.text;
-    console.log(item)
+    this.selected.emit(item.value);
+    //console.log(item)
 
   }
 
   ngOnInit(): void {
+    this.getItemList();
+  }
+
+  getItemList() {
+    this.itemsService.getItems(this.itemType).subscribe(itemName =>(this.items = itemName));
   }
 
 }
