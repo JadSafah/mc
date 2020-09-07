@@ -1,6 +1,6 @@
 <form [formGroup]="myForm">
   <div class="form-wrapper">
-      <div class="input-title">Title</div>
+      <div class="input-title">{{ inputType }}</div>
       <input class="input-header" formControlName="inputField" type="number" (keyup)="onKey()" [(ngModel)]="inputValue" min=0 max=1000000 placeholder="Loan Amount" required/>
   </div>
 </form>

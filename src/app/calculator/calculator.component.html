@@ -1,6 +1,7 @@
-<app-input-form></app-input-form>
-<app-ddl itemType="AmortizationYears" (selected)="onSelected($event)"></app-ddl>
-<app-ddl itemType="AmortizationMonths" (selected)="onSelected($event)"></app-ddl>
-<app-ddl itemType="PaymentFrequency" (selected)="onSelected($event)"></app-ddl>
-<app-ddl itemType="Term" (selected)="onSelected($event)"></app-ddl>
+<app-input-form inputType="Mortage Amount" (inputtedValue)="setMortageAmount($event)"></app-input-form>
+<app-input-form inputType="Interest Rate" (inputtedValue)="setInterestRate($event)"></app-input-form>
+<app-ddl itemType="Amortization Years" (selected)="setAmortizationYears($event)"></app-ddl>
+<app-ddl itemType="Amortization Months" (selected)="setAmortizationMonths($event)"></app-ddl>
+<app-ddl itemType="Payment Frequency" (selected)="setPaymentFrequency($event)"></app-ddl>
+<app-ddl itemType="Term" (selected)="setTerm($event)"></app-ddl>
 <button (click)="calculate()">Calculate</button>

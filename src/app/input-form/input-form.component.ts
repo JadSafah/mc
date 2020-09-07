@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InputFormComponent implements OnInit {
 
+  @Input() inputType: string;
+  @Output() inputtedValue = new EventEmitter<Number>();
+
   myForm: FormGroup;
+  inputValue: number;
 
   constructor(private formBuilder: FormBuilder) { }
 
-  inputValue: number;
-
   onKey() {
-    console.log(this.inputValue)
+    this.inputtedValue.emit(this.inputValue);
   }
 
   ngOnInit() {

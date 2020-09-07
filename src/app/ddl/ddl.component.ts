@@ -17,7 +17,7 @@ export class DdlComponent implements OnInit {
   constructor(private itemsService: ItemsService) { 
 
   }
-  
+
   public expanded = false;
   public selectedItem = "Select";
 
@@ -37,7 +37,7 @@ export class DdlComponent implements OnInit {
   }
 
   getItemList() {
-    this.itemsService.getItems(this.itemType).subscribe(itemName =>(this.items = itemName));
+    this.itemsService.getItems(this.itemType.replace(/\s/g,'')).subscribe(itemName =>(this.items = itemName));
   }
 
 }
